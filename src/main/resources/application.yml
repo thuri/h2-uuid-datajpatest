@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: h2-uuid-datajpatest
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    show-sql: false
+  datasource:
+    hikari:
+      minimumIdle: 1
+      maximumPoolSize: 10
+      idleTimeout: 125000
+      maxLifetime: 250000
+  liquibase:
+    change-log: classpath:liquibase.changelog/db.changelog-master.xml
+    enabled: true

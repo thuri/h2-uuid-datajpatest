@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        logicalFilePath="changelog-1.0-01_create_table.xml"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="changelog-1.0-01_create_table" author="me">
+        <comment>create CUSTOM_ENTITY_TABLE table</comment>
+        <createTable tableName="CUSTOM_ENTITY_TABLE">
+            <column name="ID" type="UUID"><constraints nullable="false" primaryKey="true"/></column>
+            <column name="some_data" type="VARCHAR(255)"><constraints nullable="false"/></column>
+        </createTable>
+
+        <insert tableName="CUSTOM_ENTITY_TABLE">
+            <column name="ID">a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11</column>
+            <column name="some_data">Some data</column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
