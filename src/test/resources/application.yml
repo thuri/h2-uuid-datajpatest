@@ -1,0 +1,101 @@
+jasypt:
+  encryptor:
+    algorithm: PBEWITHHMACSHA512ANDAES_256
+    password: ${jasypt_encryptor_password}
+
+kafka:
+  rewe-systems:
+    consumer-servers: ${spring.embedded.kafka.brokers}
+    producer-servers: ${spring.embedded.kafka.brokers}
+    client:
+      consumer-secret: not-used
+      producer-secret: not-used
+    security:
+      protocol: PLAINTEXT
+    token:
+      consumer-endpoint:
+        uri: not-used
+      producer-endpoint:
+        uri: not-used
+  rewe-digital:
+    bootstrap-servers: ${spring.embedded.kafka.brokers}
+    password: not-used
+    security:
+      protocol: PLAINTEXT
+    truststore:
+      password: not-used
+  groups:
+    item:
+      name: itemv2-local-01
+    commodity-group: commodity-group-local-01
+    relation: relation-local-01
+    supplier: supplier-local-01
+  topics:
+    supplier: supplier-topic
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["health","prometheus"]
+  endpoint:
+    prometheus:
+      enabled: true
+
+spring:
+  codec:
+    max-in-memory-size: 10MB
+  datasource:
+    driver-class-name: org.h2.Driver
+    password: ''
+    url: jdbc:h2:mem:db;Mode=PostgreSQL;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+  #jpa:
+  #  show-sql: true
+  #  properties:
+  #    hibernate:
+  #      format_sql: true
+  liquibase:
+    change-log: classpath:/liquibase/changelog/changelog-master.xml
+    enabled: true
+  mail:
+    host: smtp.rewe.local
+    port: 25
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+
+
+test:
+  secret: ENC(w5XzJQruHNgoZiLX0LOdXZXnOvdau1nj9tUUP6JHwrQ46bvFTgUd84eF60JaUt3G)
+
+wap:
+  admin:
+    password: admin
+  rewe:
+    password: rewe
+  penny:
+    password: penny
+
+hcms:
+  url: "http://localhost:8123/hcms/v2.4/entity/pictures"
+  serviceAccountContent: "ENC(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)"
+
+worker:
+  metrics:
+    batch-delay: 60000
+    initial-delay: 60000
+  promo-item:
+    batch-delay: 100
+    batch-size: 1
+    initial-delay: 60000
+
+akamai:
+  hostname: "not-used"
+  cp-code: "not-used"
+  path: "not-used"
+  username: "not-used"
+  api-key: "not-used"
+  download-url: "not-used"

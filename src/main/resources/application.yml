@@ -1,0 +1,5 @@
+spring.application.name=h2-uuid-datajpatest
+
+spring.jpa.hibernate.ddl-auto=none
+
+spring.liquibase.change-log=classpath:liquibase.changelog/db.changelog-master.xml
